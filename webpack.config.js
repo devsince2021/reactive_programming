@@ -1,11 +1,14 @@
 const path = require("path");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 
+const CURRENT_CHAPTER = 1;
+const FOLDER = `chapter${CURRENT_CHAPTER}`;
+
 module.exports = {
-  entry: "./src/index.ts",
+  entry: `./${FOLDER}/index.ts`,
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist", `${FOLDER}`),
   },
   plugins: [new UglifyJSPlugin()],
   module: {
